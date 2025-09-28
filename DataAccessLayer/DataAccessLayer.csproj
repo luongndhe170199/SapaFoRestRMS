@@ -7,11 +7,32 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DAO\" />
-    <Folder Include="Dbcontext\" />
-    <Folder Include="models\" />
-    <Folder Include="ViewsModels\" />
-    <Folder Include="Repository\" />
+    <Compile Remove="DAO\**" />
+    <Compile Remove="models\**" />
+    <Compile Remove="Repository\**" />
+    <Compile Remove="ViewsModels\**" />
+    <EmbeddedResource Remove="DAO\**" />
+    <EmbeddedResource Remove="models\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <EmbeddedResource Remove="ViewsModels\**" />
+    <None Remove="DAO\**" />
+    <None Remove="models\**" />
+    <None Remove="Repository\**" />
+    <None Remove="ViewsModels\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dbcontext\" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.16" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.16">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\DomainAccessLayer\DomainAccessLayer.csproj" />
+	</ItemGroup>
 </Project>

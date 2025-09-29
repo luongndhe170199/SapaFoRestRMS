@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using DataAccessLayer;
+using DataAccessLayer.Dbcontext;
 namespace SapaFoRestRMSAPI
 {
     public class Program
@@ -5,6 +8,9 @@ namespace SapaFoRestRMSAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<SapaFoRestRmsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyDatabase")));
+
 
             // Add services to the container.
 
